@@ -2,14 +2,14 @@ const characters =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 "/"];
 // console.log(characters[0]);
 let btn = document.querySelector(".btn");
-let numberOfChar = document.getElementById('demo');
 let firstPass = document.getElementById("firstPass");
 let secondPass = document.getElementById("secondPass");
-let firstPassGen='',secondPassGen,char;
+let firstPassGen,secondPassGen,char;
 
 
 btn.addEventListener("click",()=>{
     // firstPass.value=0;
+    let numberOfChar = document.querySelector('.input-field');
     numberOfChar =numberOfChar.value;
     firstPass.textContent= genratePassword(numberOfChar);
     secondPass.textContent= genratePassword(numberOfChar);
@@ -19,10 +19,12 @@ btn.addEventListener("click",()=>{
 });
 
 function genratePassword(numberOfChar){
-    for(let i=0; i<=numberOfChar; i++){
+    firstPassGen="";
+    for(let i=0; i<numberOfChar; i++){
         char = Math.floor(Math.random()*characters.length);
         firstPassGen+=characters[char];
     }
+
     return firstPassGen;
 
 
